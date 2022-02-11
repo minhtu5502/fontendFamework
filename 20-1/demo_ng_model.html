@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body ng-app="hello_World">
+    <div ng-controller="hello_Controller">
+        <h3 ng-bind="message"></h3>
+        <input type="text" ng-model="message" placeholder="">
+    </div>
+    <Script src="../js/angularjs.min.js"></Script>
+    <Script>
+        //B1 Tạo đối tượng angular
+        const app = angular.module("hello_World",[]);
+        //B2 khai báo phạm vi hoạt động: ng-app
+        //B3 tạo function xử lý
+        function sayHello($scope){
+            $scope.message = "Hello World";
+        }
+        //B4 tạo controller
+        app.controller("hello_Controller",sayHello);
+
+    </Script>
+    
+</body>
+</html>

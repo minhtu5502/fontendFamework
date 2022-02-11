@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT16301 - Demo $scope 2: Nesting $scope</title>
+</head>
+<body ng-app="demo_scope_2">
+    <!-- Parent -->
+    <div ng-controller="parent_controller">
+        <p>Parent: {{ msg_parent }}</p>
+
+        <!-- Child 1 -->
+        <div ng-controller="my_controller1" style="height: 100px; background-color: aqua;">
+            <p>Child 1: {{ msg_1 }}</p>
+
+            <!--
+                C1: truy xuất trực tiếp thuộc tính của $scope cha
+                    do vẫn thuộc phạm vi của $scope cha.
+                => Xét trên $scope của parent_controller
+            -->
+            <p>Parent C1: {{ msg_parent }}</p>
+
+            <!--
+                C2: Xét trên $scope của my_controller1 (child)
+                Sử dụng $parent để truy xuất tới $scope cha
+            -->
+            <p>Parent C2: {{ $parent.msg_parent }}</p>
+        </div>
+
+        <!-- Child 2 -->
+        <div ng-controller="my_controller2" style="height: 100px; background-color: lightgreen;">
+            <p>Child 2: {{ msg_2 }}</p>
+            <p>{{$parent.$parent.msgRoot}}</p>
+
+        </div>
+    </div>
+
+    <script src="../js/angularjs.min.js"></script>
+    <script>
+        const app = angular.module("demo_scope_2", []);
+        function parentController($scope) {
+            $scope.msg_parent = "Đây là message parent";
+        }
+        function myController1($scope) {
+            $scope.msg_1 = "Đây là message 1";
+        }
+        function myController2($scope,$rootScope) {
+            $scope.msg_2 = "Đây là message 2";
+            $rootScope.msgRoot = "Đây là message root";
+        }
+
+        app.controller("parent_controller", parentController);
+        app.controller("my_controller1", myController1);
+        app.controller("my_controller2", myController2);
+    </script>
+</body>
+</html>

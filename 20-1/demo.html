@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body ng-app="demo">
+
+
+    <div ng-controller="app_Ctrl">
+        <ul>
+            <li>{{ info.ten }}</li>
+            <li>{{ info.ma }}</li>
+            <li>{{ info.enail }}</li>
+            <li>{{ info.sdt }}</li>
+            <li>{{ info.chuyen_nganh }}</li>
+        </ul>
+    </div>
+    <script src="../js/angularjs.min.js"></script>
+    <Script>
+        //B1 Tạo đối tượng angular
+        const app = angular.module("demo", []);
+        //B2 khai báo phạm vi hoạt động: ng-app
+        //B3 tạo function xử lý
+        function sayHello($scope) {
+            let message = {
+                anh:"",
+                ten: "Ng Van A",
+                ma: "PH12345",
+                email: "anvph12345@fpt.edu.vn",
+                sdt: "0123123123",
+                chuyen_nganh: "UDPM"
+            }
+            $scope.info = message;
+        }
+        //B4 tạo controller
+        app.controller("app_Ctrl", sayHello);
+
+    </Script>
+
+</body>
+
+</html>

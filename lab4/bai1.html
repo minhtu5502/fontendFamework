@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="../js/angularjs.min.js"></script>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+</head>
+
+<body ng-app="myapp">
+    <div ng-controller="myctrl">
+        <div class="row justify-content-center">
+            <img src="{{info.avatar}}" width="300" alt="">
+            <ul>
+                <li>Họ và tên: {{info.fullname}}</li>
+                <li>Date: {{info.brithday}}</li>
+                <li>Gender: {{info.gender}}</li>
+                <li>Mark: {{info.mark}}</li>
+            </ul>
+        </div>
+
+    </div>
+    <script>
+        angular.module('myapp', []).controller('myctrl', function ($scope) {
+            $scope.info = {
+                fullname: "Nguyễn Minh Tứ",
+                brithday: "06-09-2002",
+                gender: "Nam",
+                avatar: 'anh.png',
+                mark: 10
+            }
+        })
+    </script>
+    <script src="../js/jquery.min.js"></script>    
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/popper.min.js"></script>   
+</body>
+
+</html>

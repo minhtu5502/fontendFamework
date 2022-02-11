@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="../js/angularjs.min.js"></script>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+</head>
+
+<body ng-app="myapp">
+    <div ng-controller="mycrtl" class="container">
+        <table class="table table-bordered table-stripeditable">
+            <thead>
+                <tr>
+                    <th>Hinh</th>
+                    <th>Ho Ten</th>
+                    <th>Ngay Sinh</th>
+                    <th>Gioi Tinh</th>
+                    <th>Diem</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td> <img src="{{info[0].avatar}}" width="100" alt=""></td>
+                    <td>{{info[0].fullname}}</td>
+                    <td>{{info[0].brithday}}</td>
+                    <td>{{info[0].gender}}</td>
+                    <td>{{info[0].mark}}</td>
+                </tr>
+
+                <tr>
+                    <td> <img src="{{info[1].avatar}}" width="100" alt=""></td>
+                    <td>{{info[1].fullname}}</td>
+                    <td>{{info[1].brithday}}</td>
+                    <td>{{info[1].gender}}</td>
+                    <td>{{info[1].mark}}</td>
+                </tr>
+
+                <tr>
+                    <td> <img src="{{info[2].avatar}}" width="100" alt=""></td>
+                    <td>{{info[2].fullname}}</td>
+                    <td>{{info[2].brithday}}</td>
+                    <td>{{info[2].gender}}</td>
+                    <td>{{info[2].mark}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        angular.module('myapp', []).controller('mycrtl', function ($scope) {
+            $scope.info = [
+            {
+                fullname: "Nguyễn Minh Tứ",
+                brithday: "06-09-2002",
+                gender: "Nam",
+                avatar: 'anh.png',
+                mark: 10
+            },
+            {
+                fullname: "Nguyễn Minh a",
+                brithday: "07-09-2002",
+                gender: "nữ",
+                avatar: 'anh1.png',
+                mark: 10
+            },
+            {
+                fullname: "Nguyễn Minh b",
+                brithday: "08-09-2002",
+                gender: "Nam",
+                avatar: 'anh2.png',
+                mark: 10
+            }
+            ]
+        })
+
+    </script>
+<script src="../js/jquery.min.js"></script>    
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/popper.min.js"></script>    
+</body>
+
+</html>

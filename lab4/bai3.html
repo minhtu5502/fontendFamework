@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+
+    <script src="../js/angularjs.min.js"></script>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+</head>
+
+<body ng-app="myapp">
+    <div class="container" ng-controller="myctrl">
+        <form>
+            <div class="col-5">
+                <div class="form-group ">
+                    <label for="">Chiều dài</label>
+                    <input ng-model="length" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="">Chiều Rộng</label>
+                    <input ng-model="width" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="">Diện tích</label>
+                    <div ng-bind="dt" class="form-control"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="">Chu vi</label>
+                    <div ng-bind="cv" class="form-control"></div>
+                </div>
+                <hr>
+
+                <button class="btn btn-group btn-primary" ng-click="calculate()">Calculate</button>
+            </div>
+        </form>
+    </div>
+    <script>
+        angular.module("myapp", []).controller("myctrl", function ($scope) {
+            $scope.calculate = function () {
+                let a = parseFloat($scope.width);
+                let b = parseFloat($scope.length);
+                $scope.dt = a * b;
+                $scope.cv = (a + b) * 2;
+
+            }
+        })
+    </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+</body>
+
+</html>
